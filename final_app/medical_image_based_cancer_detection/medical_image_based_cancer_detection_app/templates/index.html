@@ -1,0 +1,28 @@
+<!-- image_prediction_app/templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>medical_image_based_cancer_detection</title>
+</head>
+<body>
+    <h2>medical_image_based_cancer_detection</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="model_path">Model Path:</label><br>
+        <input type="text" id="model_path" name="model_path"><br>
+        <label for="class_path">Class Names Path:</label><br>
+        <input type="text" id="class_path" name="class_path"><br>
+        <label for="image_path">Image Path:</label><br>
+        <input type="text" id="image_path" name="image_path"><br><br>
+        <button type="submit">Predict</button>
+    </form>
+    {% if prediction %}
+        <h3>Prediction:</h3>
+        <pre>
+            {{ prediction }}
+        </pre>
+    {% endif %}
+</body>
+</html>
